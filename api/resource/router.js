@@ -1,9 +1,8 @@
-// build your `/api/resources` router here
 const express = require('express')
 const router = express.Router()
 const Resource = require('./model')
 
-// GET returns all projects 
+// GET returns all resources
 router.get('/',(req,res,next) => {
     Resource.getResources()
     .then((projects) => {
@@ -12,7 +11,7 @@ router.get('/',(req,res,next) => {
     .catch(next)
 })
 
-//POST creates new project in database with contents of req.body
+//POST creates new resource in database with contents of req.body
 router.post('/', (req,res,next) => {
     Resource.createResource(req.body)
     .then((project) => {

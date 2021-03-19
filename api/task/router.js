@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 const Task = require('./model')
 
-// GET returns all projects 
+// GET returns all tasks 
 router.get('/',(req,res,next) => {
     Task.getTasks()
     .then((task) => {
@@ -11,7 +11,7 @@ router.get('/',(req,res,next) => {
     .catch(next)
 })
 
-//POST creates new project in database with contents of req.body
+//POST creates new tasks in database with contents of req.body
 router.post('/', (req,res,next) => {
     Task.createTask(req.body)
     .then((task) => {

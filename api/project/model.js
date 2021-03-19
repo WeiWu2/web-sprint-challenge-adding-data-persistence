@@ -15,12 +15,14 @@ const getProjects = async () => {
         return convertProjectBoolean(project)
      })
 }
+
 // finds the first project by project_id
 const findProjectById = (id) => {
     return db('projects')
     .where('project_id', id)
     .first()
 }
+
 // creates new project, calls findById to get the new project then calls convert to convert the boolean integer 0 || 1
 const createProject = async (project) => {
    return convertProjectBoolean(await findProjectById(await db('projects').insert(project)))
